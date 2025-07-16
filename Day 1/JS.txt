@@ -1,0 +1,63 @@
+1. Why lang?
+A. CPU/RAM understands only 1/0 (on/off),
+we can't write 01 but can write lang
+
+2.interpreted vs compiled?
+A. compile => creates a byte code (01) if no error
+interpreted => line by line (partial exec)
+
+3. why JS best?
+not best, but all websites use JS, as chrome, firefox, edge, etc. can understand websites written using HTML/CSS/JS
+Hence, you can make a website in rust, and a browser that can understand it to run it
+
+4. Static vs Dynamic
+A. Static: type checking/strictly typed
+Dynamic: a=1, a="abc", fast to write
+
+
+5. pass by value => premitive data types
+Object (array, functions, etc) => pass by referece
+
+6. obj["name"] and obj.name, When to Use Which?
+A.Use dot notation by default. It's cleaner and more conventional.
+
+Use bracket notation when the property name has special characters or when you need to use a variable to access the property.
+
+7. Callback function
+A. Calling back a function which was passed as parameter to a function
+
+
+8. What is JS and important concepts 
+
+JavaScript is a single-threaded language, meaning it can only do one thing at a time using its call stack. To handle tasks like timers or user events without freezing the main thread, it uses an asynchronous, non-blocking model.
+
+When an asynchronous function like setTimeout is called, it's handed off to an external environment. Once that task is finished, its callback function is placed in the Task Queue. The Event Loop constantly checks if the call stack is empty. If it is, the Event Loop takes the first item from the Task Queue and moves it to the call stack to be executed.
+
+This system allows JavaScript to remain responsive. Importantly, features like the DOM, setTimeout, and XMLHttpRequest are not part of the core JavaScript engine (like V8) but are provided by the runtime environment.
+
+Why is it called a "Web API"?
+Yes, it has everything to do with the web browser.
+
+These features are called Web APIs because they are Application Programming Interfaces provided by the web browser environment, not by the JavaScript language itself. The "Web" in the name signifies that they are part of the browser's functionality, allowing your JavaScript code to interact with the web page and the browser.
+
+Think of it this way:
+
+JavaScript Engine (e.g., V8): The core component that reads and executes your JavaScript code. It has the call stack and heap.
+
+Web APIs (Browser): A separate set of tools the browser provides for handling tasks that the JavaScript engine can't do on its own, like manipulating the DOM, making HTTP requests (fetch), or managing timers (setTimeout).
+
+This model isn't limited to browsers. A different JavaScript environment like Node.js doesn't have Web APIs for the DOM, but it has its own set of APIs for server-side tasks, like accessing the file system (fs).
+
+
+9. what is v8
+only brower have it?
+
+V8 is a high-performance JavaScript engine created by Google. It's the component that takes your JavaScript code and compiles it into machine code that your computer can execute quickly.
+
+Not Just for Browsers
+No, V8 is not exclusive to browsers. While it's famously used in web browsers like Google Chrome and other Chromium-based browsers (like Microsoft Edge and Opera), it also powers server-side environments.
+
+The most popular example is Node.js, which allows developers to run JavaScript code on a server, completely outside of a web browser. This is possible because Node.js is built around the V8 engine.
+
+
+
