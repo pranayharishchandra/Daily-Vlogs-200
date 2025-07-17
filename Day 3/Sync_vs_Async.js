@@ -1,5 +1,6 @@
+// promise also use the same callback concept under the hood
 
-///=============== CALLBACK VERSION (UGLY WAY)===============
+//=============== CALLBACK VERSION (UGLY WAY)===============
 
 const fs = require('fs');
 

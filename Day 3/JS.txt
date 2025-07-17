@@ -93,6 +93,23 @@ WEB API aren't part of the core JavaScript language itself. Instead, the organiz
 
 So, they built these features directly into the browser as a set of APIs that your JavaScript code can use. ✅
 
+== Synchronous WEB API
+// localStorage
+localStorage.setItem('user', 'Pranay');
+
+// DOM manipulate
+const myDiv = document.querySelector('#my-div');
+
+== Asynchronous WEB API
+// eg1
+setTimeout(() => {
+  console.log("Time is up!");
+}, 1000);
+
+// eg2
+fetch('/api/data')
+  .then(response => response.json())
+  .then(data => console.log(data));
 
 5.
 when
@@ -128,3 +145,69 @@ the Promise object itself is returned synchronously as a placeholder.
 The main code continues to run without waiting.
 ``The data that fulfills the promise arrives asynchronously later``, 
 and the .then() block is executed only when that happens.
+
+
+8.
+Creating Promise
+- always takes a function
+- that function always takes atleast 1 parameter (resolve or r or whatever)
+and 2nd parameter (reject)
+
+Consiming Promise
+- .then(), .catch(), .finall()
+
+States
+- pending, resolve, rejected
+
+
+
+
+9.
+It's called a "placeholder" because it literally holds 
+the place for a value that will exist in the future.
+
+When you call an asynchronous function, 
+JavaScript can't give you the final result right away 
+because it has to wait. Instead of making your entire program stop and wait 
+(which would freeze the user interface), 
+it immediately gives you a Promise object.
+
+This object is a placeholder that says, 
+"I promise I will have a value for you later, either a success or a failure."
+
+
+
+
+10.
+The "await" keyword is the operator that unwraps the promise to give you its resolved value. Without it, you are just holding onto the promise object itself, which is a placeholder for the future value.
+
+
+
+11. 
+why v8 engine of browser use web api
+but of v8 in nodejs provides alternate api of web api
+
+A.
+That's an excellent question. The key is to understand that the V8 engine's only job is to execute JavaScript. It doesn't know what a "document," "window," or "file system" is.
+
+The APIs are provided by the runtime environment that hosts the V8 engine. Because browsers and servers have different needs, they provide different APIs.
+
+👉 The V8 Engine: Just the Engine ⚙️
+Think of V8 as a powerful car engine. It can generate power, but on its own, it can't do anything useful. It doesn't have wheels, a steering wheel, or brakes.
+
+The Environment: The Rest of the Vehicle
+The runtime environment builds a vehicle around the V8 engine, adding the necessary parts for its specific job.
+
+👉 Browser (like a Car 🚗): A browser's job is to display web pages. It takes the V8 engine and adds Web APIs to interact with the web environment.
+
+  - DOM API: To "steer" the web page.
+  - fetch() API: To "drive" to a server and get data.
+  - setTimeout: To manage the "car's clock."
+
+👉 Node.js (like a Tractor 🚜): A server's job is to do things like read files and handle network connections. It takes the same V8 engine and adds Node.js APIs for its specific tasks.
+
+  - fs (File System) API: To "plow the fields" (read/write files).
+  - http API: To "transport goods" (create servers and handle requests).
+
+So, V8 is just the core processor. The environment it's placed in determines which tools (APIs) are available for it to use.
+
