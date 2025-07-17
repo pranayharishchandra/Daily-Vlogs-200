@@ -61,3 +61,37 @@ The most popular example is Node.js, which allows developers to run JavaScript c
 
 
 
+
+10. 
+function sum (a,b) {return a+b}
+
+function sum (a,b,c) {return a+c+b;}
+
+when i do call back then how will it know which sum i was refereing to
+
+function print (a,b, plus) {
+  console.log(plus(a,b))
+}
+
+print ( 1, 2, sum)
+
+A.
+
+In JavaScript, if you declare two functions with the same name, the last definition completely overwrites the previous ones. There is no function overloading based on the number of parameters.
+
+When your code runs, the only sum function that exists is the second one you defined:
+
+This means the sum function is executed as sum(a, b, undefined), because the third argument, c, was not provided. The calculation becomes a + undefined + b, which results in NaN (Not-a-Number).
+
+Therefore, there's no confusion for JavaScript; it will only ever see the last sum function you wrote.
+
+11. 
+function sum (a,b)   {return a+b}
+function sum (a,b,c) {return a+c+b;}
+
+console.log( sum (1,2))
+
+A. 1+2+undefined = NaN
+
+
+
