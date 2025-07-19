@@ -1,27 +1,213 @@
-1. slice
-2. substr => depriciated, use rather slice
+1. 
+nodejs don't have api like v8 engine (js run time env) (used by browsers only)
+
+but alternate api it provides to handle those tasks
+
+
+2.
+Key Tasks Handled by Web APIs:-
+
+- DOM Manipulation: This is the most common use. Web APIs allow you to find, create, and change HTML and CSS.
+
+document.querySelector()
+element.innerHTML
+element.style
+element.addEventListener()
+
+- Fetching Data: These APIs are for making network requests to servers to get or send data.
+
+fetch()
+XMLHttpRequest (the older way)
+
+- Timers: For scheduling code to run after a delay or at regular intervals.
+
+setTimeout()
+setInterval()
+
+- Browser Storage: For storing data on the user's computer.
+
+localStorage
+sessionStorage
+
+- Browser Information and Events: For interacting with the browser itself, like managing history or understanding the user's location.
+
+window.location
+navigator.geolocation
+
+- The alert(), prompt(), and confirm() dialogs.
 
 
 
-3. replace
-4. split
 
-5.trim
-6. parseInt 
-"12abc"
-"abc12"
-"3.14"
 
-7. push, pop, shift, unshift, concat
+3. 
+all async calls aren't using webapi
+but all webapi are called from a async function right?
 
-8. JSON string
-'{"key1":value1, "key2": value2}'
+A.
+No, that's not quite right. A Web API call does not have to be made from within an async function.
 
-9. Objects
-.key, .values, .entries, .assign, .hasOwnProperty
+While modern asynchronous Web APIs like fetch() are often used with async/await, it's not a requirement. More importantly, many Web APIs are either synchronous or use older callback patterns.
 
-10. Date 
-- current Date
-- current Month
-- current Year
-- munite, hours, seconds
+=========== 1. Asynchronous APIs without async/await
+You can use asynchronous Web APIs with older patterns like .then() callbacks or simple callbacks, which don't require the calling function to be marked as async.
+
+Using .then() with fetch:
+
+JavaScript
+
+// No 'async' keyword needed here
+fetch('/api/data')
+  .then(response => response.json())
+  .then(data => console.log(data));
+Using a simple callback with setTimeout:
+
+JavaScript
+
+// No 'async' keyword needed here
+setTimeout(() => {
+  console.log("Time is up!");
+}, 1000);
+
+
+========== 2. Synchronous Web APIs
+Some Web APIs are completely synchronous, meaning they block the main thread and execute immediately without needing async/await or callbacks.
+
+- localStorage: Storing data is a synchronous operation.
+
+JavaScript
+
+// This is a Web API call, and it's synchronous.
+localStorage.setItem('user', 'Pranay');
+DOM Manipulation: Finding an element is also synchronous.
+
+JavaScript
+
+// This is synchronous.
+const myDiv = document.querySelector('#my-div');
+The async keyword is specifically required when you want to use the await keyword to pause execution until a Promise resolves. It's a tool for managing asynchronous operations, not a requirement for starting them.
+
+
+4.
+WEB API aren't part of the core JavaScript language itself. Instead, the organizations and developers who build web browsers realized that for websites to be dynamic and interactive, JavaScript needed a way to do things like handle timers (setTimeout), talk to servers (fetch), and manipulate the page (DOM).
+
+So, they built these features directly into the browser as a set of APIs that your JavaScript code can use. ✅
+
+== Synchronous WEB API
+// localStorage
+localStorage.setItem('user', 'Pranay');
+
+// DOM manipulate
+const myDiv = document.querySelector('#my-div');
+
+== Asynchronous WEB API
+// eg1
+setTimeout(() => {
+  console.log("Time is up!");
+}, 1000);
+
+// eg2
+fetch('/api/data')
+  .then(response => response.json())
+  .then(data => console.log(data));
+
+5.
+when
+`setTimeout` is seen by JS
+then it go to the "call stack"
+then immediately to the "webapi"
+after the timer is done, then goes from "webapi" to the "callback queue"
+after the "call stack" is empty
+then "event loop" takes it from "callback queue" to "call stack"
+---
+"event loop" work is just to keep checking if stack is empty
+and push the "callback queue" function to "call stack"
+
+
+
+6. 
+he time you set in `setTimeout` is the minimum delay 
+before the callback is added to the queue, 
+not a guaranteed execution time. 
+The function will run after "at least" that amount of time has passed,
+and only when the "call stack" is "empty" 
+and its turn comes up in the call stack.
+
+
+
+7.
+promise is returned immediately syncronously
+but the data of of the promise comes asyncronously
+
+===
+When you call a function that returns a promise, 
+the Promise object itself is returned synchronously as a placeholder.
+The main code continues to run without waiting.
+``The data that fulfills the promise arrives asynchronously later``, 
+and the .then() block is executed only when that happens.
+
+
+8.
+Creating Promise
+- always takes a function
+- that function always takes atleast 1 parameter (resolve or r or whatever)
+and 2nd parameter (reject)
+
+Consiming Promise
+- .then(), .catch(), .finall()
+
+States
+- pending, resolve, rejected
+
+
+
+
+9.
+It's called a "placeholder" because it literally holds 
+the place for a value that will exist in the future.
+
+When you call an asynchronous function, 
+JavaScript can't give you the final result right away 
+because it has to wait. Instead of making your entire program stop and wait 
+(which would freeze the user interface), 
+it immediately gives you a Promise object.
+
+This object is a placeholder that says, 
+"I promise I will have a value for you later, either a success or a failure."
+
+
+
+
+10.
+The "await" keyword is the operator that unwraps the promise to give you its resolved value. Without it, you are just holding onto the promise object itself, which is a placeholder for the future value.
+
+
+
+11. 
+why v8 engine of browser use web api
+but of v8 in nodejs provides alternate api of web api
+
+A.
+That's an excellent question. The key is to understand that the V8 engine's only job is to execute JavaScript. It doesn't know what a "document," "window," or "file system" is.
+
+The APIs are provided by the runtime environment that hosts the V8 engine. Because browsers and servers have different needs, they provide different APIs.
+
+👉 The V8 Engine: Just the Engine ⚙️
+Think of V8 as a powerful car engine. It can generate power, but on its own, it can't do anything useful. It doesn't have wheels, a steering wheel, or brakes.
+
+The Environment: The Rest of the Vehicle
+The runtime environment builds a vehicle around the V8 engine, adding the necessary parts for its specific job.
+
+👉 Browser (like a Car 🚗): A browser's job is to display web pages. It takes the V8 engine and adds Web APIs to interact with the web environment.
+
+  - DOM API: To "steer" the web page.
+  - fetch() API: To "drive" to a server and get data.
+  - setTimeout: To manage the "car's clock."
+
+👉 Node.js (like a Tractor 🚜): A server's job is to do things like read files and handle network connections. It takes the same V8 engine and adds Node.js APIs for its specific tasks.
+
+  - fs (File System) API: To "plow the fields" (read/write files).
+  - http API: To "transport goods" (create servers and handle requests).
+
+So, V8 is just the core processor. The environment it's placed in determines which tools (APIs) are available for it to use.
+

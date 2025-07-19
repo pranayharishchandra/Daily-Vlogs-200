@@ -5,7 +5,7 @@
 const fs = require('fs');
 
 // my own "asynchronous" function, you could have also used - setTimeout 
-function kiratsReadFile() {
+function pranaysReadFile() {
   return new Promise(function(resolve) {
     fs.readFile("a.txt", "utf-8", function(err, data) {
       resolve(data);
@@ -18,9 +18,9 @@ function onDone(data) {
   console.log(data)
 }
 
-// kiratsReadFile().then(onDone);
+// pranaysReadFile().then(onDone);
 
-const promisePlaceholder = kiratsReadFile()  // promise returned immediately
+const promisePlaceholder = pranaysReadFile()  // promise returned immediately
 // The data that fulfills the promise arrives asynchronously later
 promisePlaceholder.then(onDone) // .then() to handle data when promise is resolved
 
@@ -30,7 +30,7 @@ promisePlaceholder.then(onDone) // .then() to handle data when promise is resolv
 const fs = require('fs');
 
 // my own "asynchronous" function, you could have also used - setTimeout 
-function kiratsReadFile() {
+function pranaysReadFile() {
   return new Promise(function(resolve) {
     fs.readFile("a.txt", "utf-8", function(err, data) {
       resolve(data);
@@ -45,14 +45,14 @@ function onDone(data) {
 }
 
 
-const promisePlaceholder = kiratsReadFile()  // promise returned immediately
+const promisePlaceholder = pranaysReadFile()  // promise returned immediately
 // The data that fulfills the promise arrives asynchronously later
 promisePlaceholder.then(onDone) // .then() to handle data when promise is resolved
 */
 
 async function nameOfFunction() {
-  const data = await kiratsReadFile();
-  // const data = kiratsReadFile(); // Promise { pending }
+  const data = await pranaysReadFile();
+  // const data = pranaysReadFile(); // Promise { pending }
   console.log("this code waits for the promise to resolve")
   console.log(data)
 }

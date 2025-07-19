@@ -1,0 +1,27 @@
+1. slice
+2. substr => depriciated, use rather slice
+
+
+
+3. replace
+4. split
+
+5.trim
+6. parseInt 
+"12abc"
+"abc12"
+"3.14"
+
+7. push, pop, shift, unshift, concat
+
+8. JSON string
+'{"key1":value1, "key2": value2}'
+
+9. Objects
+.key, .values, .entries, .assign, .hasOwnProperty
+
+10. Date 
+- current Date
+- current Month
+- current Year
+- munite, hours, seconds
