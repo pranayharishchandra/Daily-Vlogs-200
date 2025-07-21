@@ -211,3 +211,15 @@ The runtime environment builds a vehicle around the V8 engine, adding the necess
 
 So, V8 is just the core processor. The environment it's placed in determines which tools (APIs) are available for it to use.
 
+
+
+
+
+
+
+
+
+
+
+
+
