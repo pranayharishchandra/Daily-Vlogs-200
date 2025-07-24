@@ -25,8 +25,8 @@ const app = express();
 app.use(express.json());
 
 // --- Constants (should be in a .env file) ---
-//! const JWT_SECRET = 'your-super-secret-key-that-is-very-long';
-//! const MONGO_URI = 'mongodb+srv://pranay:pranay@cluster0.dprg5ql.mongodb.net/';
+//! const JWT_SECRET =
+//! const MONGO_URI = 
 const JWT_SECRET = process.env.JWT_SECRET;
 const MONGO_URI  = process.env.MONGO_URI;
 
