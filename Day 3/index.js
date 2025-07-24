@@ -1,7 +1,7 @@
 // const express = require('express');
 import express from 'express'
 import bodyParser from 'body-parser';
-import send from 'send';
+
 const app = express();
 const port = 8001;
 
@@ -40,4 +40,13 @@ function scriptStatus () {
 
 // app.listen(port);
 app.listen(port, scriptStatus);
+
+
+/*
+* before parsing, it's just a text, 
+* after parsing, "res" gets "body" property 
+
+---
+hence, before parsing, it will give you "undefined" when you try doing "req.body"
+ */
 

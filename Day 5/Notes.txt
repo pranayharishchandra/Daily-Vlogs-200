@@ -1,0 +1,24 @@
+1. 
+return res.status(400).json({ errors: error }); 
+A.
+{
+    "errors": {
+        "name": "ZodError",
+        "message": "[\n  {\n    \"expected\": \"string\",\n    \"code\": \"invalid_type\",\n    \"path\": [\n      \"username\"\n    ],\n    \"message\": \"Invalid input: expected string, received undefined\"\n  },\n  {\n    \"origin\": \"string\",\n    \"code\": \"too_small\",\n    \"minimum\": 8,\n    \"inclusive\": true,\n    \"path\": [\n      \"password\"\n    ],\n    \"message\": \"Password must be at least 8 characters long.\"\n  }\n]"
+    }
+}
+
+==========
+
+2. 
+const decoded = jwt.verify(token, JWT_SECRET);
+A.
+// res.send({decoded: req.user})
+{
+    "decoded": {
+        "sub": "6880a8fd4d0c6699fdc86a18",
+        "username": "test",
+        "iat": 1753262502,
+        "exp": 1753266102
+    }
+}

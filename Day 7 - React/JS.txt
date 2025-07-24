@@ -53,3 +53,35 @@ No, this is not possible. They solve two completely different problems.
   - Socket.IO transfers application data (like a chat message) between different users.
 
 Think of it this way: HMR is the architect changing the blueprints of a building. Socket.IO is the mail service delivering letters between people inside the building. You can't use the blueprints to deliver mail.
+
+
+
+
+
+============
+1. why vite?
+2. (index.html) -> (main.js) -> (App.js)
+3. component name -> capital letter (differentiate from tags like <div>)
+4. public (anyone can access), asset (we don't want them to get accessed)
+5. node_mudules => what our project required (directly or indirectly)
+6. vite.config.js => setting of our tool (vite)
+7. JSX (Js extension, not Js XML)=> Js + HTMl like
+8. React => Camel case every 2 words (onClick)
+9. onClick(() => fun(parameter)) and onClick(fun) // when no parameter
+    [we have to pass function "defination", not "calling"]
+10. With the new versions, the way to do a process/thing can change. 
+    They almost always do deprecate it first.
+    and after some versions are removed. 
+
+  ⭐ Why reamoving old code is important:-
+    - Maintenance Burden & Technical Debt:  
+        Keeping the old, deprecated code means the React team has to maintain two ways of doing the same thing. 
+        If a bug is found, it might need to be fixed in both places. This slows down development and increases the risk of new bugs.
+    -  old code is fundamentally incompatible with a new, powerful architecture
+    - Library Size (Bloat): 
+        Every user accessing React application have to download that Library with depriciated old code,
+        which will make react bulky and slow, so remove extra code of Library to keep react fast and lean
+11. Hooks -> use..., useEffect, useState
+12. onClick -> handle...
+13.
+
