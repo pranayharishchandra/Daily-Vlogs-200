@@ -83,5 +83,9 @@ Think of it this way: HMR is the architect changing the blueprints of a building
         which will make react bulky and slow, so remove extra code of Library to keep react fast and lean
 11. Hooks -> use..., useEffect, useState
 12. onClick -> handle...
-13.
-
+13. in JSX, using { } you can write Js but HTML also 
+      eg. { isVerified && <Profile /> }
+14. passing props - different ways. (<Comp name={"Pranay"} age ={23}/>, <Comp obj = {userObj}/>) /*is also correct*/
+     more common for stirng: -      (<Comp name= "Pranay"  age ={23}/>, <Comp obj = {userObj}/>)
+15. Default props: `funcion User ( { user = "New User" }) 
+16. Assignment - 1
