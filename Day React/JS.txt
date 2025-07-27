@@ -89,3 +89,9 @@ Think of it this way: HMR is the architect changing the blueprints of a building
      more common for stirng: -      (<Comp name= "Pranay"  age ={23}/>, <Comp obj = {userObj}/>)
 15. Default props: `funcion User ( { user = "New User" }) 
 16. Assignment - 1
+
+17. styles takes an object with css properties,   
+    (just make sure that all the prperties are in CamelCase like: borderRadius)
+
+====================== 18. Clean-Up function ======================
+

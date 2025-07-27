@@ -6,7 +6,7 @@
 import React, { useState } from 'react';
 
 // Main App Component
-export default function App() {
+export default function Assignment1() {
   // useState hook to manage the input field's value.
   // 'inputValue' holds the current text.
   // 'setInputValue' is the function to update the text.
