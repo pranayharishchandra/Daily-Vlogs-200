@@ -15,7 +15,7 @@ function UseRefCompleteDemo() {
   const [text, setText] = useState('');
 
   // This effect runs after EVERY render, incrementing our ref counter.
-  // Because updating a ref doesn't trigger a re-render, this does NOT cause an infinite loop.
+  //* Because updating a ref doesn't trigger a re-render, this does NOT cause an infinite loop.
   useEffect(() => {
     renderCountRef.current = renderCountRef.current + 1;
   });
