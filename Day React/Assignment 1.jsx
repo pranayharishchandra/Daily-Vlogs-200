@@ -25,12 +25,14 @@ export default function Assignment1() {
     setInputValue('');
   };
 
+  const constInputValue = inputValue;
+
   return (
     <div className="bg-gray-900 text-white min-h-screen flex items-center justify-center font-sans">
       <div className="w-full max-w-md p-8 bg-gray-800 rounded-xl shadow-lg space-y-6">
         
         {/* Title */}
-        <h1 className="text-3xl font-bold text-center text-cyan-400">Live Text Editor</h1>
+        <h2 className="text-3xl font-bold text-center text-cyan-400">Live Text Editor</h2>
         
         {/* Input Field */}
         <div>
@@ -50,7 +52,11 @@ export default function Assignment1() {
         {/* Display Area */}
         <div className="p-4 bg-gray-900 rounded-lg min-h-[80px] border border-gray-700">
           <p className="text-gray-400 text-sm">You are writing:</p>
-          <p className="text-lg text-green-400 break-words">{inputValue}</p>
+          <p className="text-lg text-green-400 break-words">useState Variable: {inputValue}</p>
+          <p className="text-lg text-green-400 break-words">const Variable : {constInputValue}</p>
+          <i style={{padding: "5px", background: "aqua", display: "block"}}>(const variable, written in component; </i>
+          <i style={{padding: "5px", background: "aqua", display: "block"}}>everytime when useState variable changes, </i>
+          <i style={{padding: "5px", background: "aqua", display: "block"}}>component re-rendered and `constInputValue` values gets updated)</i>
         </div>
 
         {/* Clear Button */}
