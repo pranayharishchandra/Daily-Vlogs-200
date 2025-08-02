@@ -17,5 +17,9 @@
       1
     ],
     "comment": 0
+  },
+  "editor.tokenColorCustomizations": {
+    "comments": "",
+    "textMateRules": []
   }
 }

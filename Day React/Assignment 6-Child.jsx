@@ -52,10 +52,10 @@ export default function LifecycleLogger({ message }) {
     <div className="p-6 bg-gray-700 rounded-lg border border-cyan-500 space-y-4">
       <h3 className="text-xl font-bold text-cyan-300">Child Component</h3>
       <p>Prop from parent: <span className="font-semibold">"{message}"</span></p>
-      <p>Internal state: <span className="font-semibold">{count}</span></p>
+      <p>Internal state: <span className = "font-semibold">{count}</span></p>
       <button
-        onClick={() => setCount(c => c + 1)}
-        className="w-full py-2 bg-cyan-600 hover:bg-cyan-700 rounded-lg"
+        onClick   = {() => setCount(c => c + 1)}
+        className = "w-full py-2 bg-cyan-600 hover:bg-cyan-700 rounded-lg"
       >
         Increment Child State (Count)
       </button>
