@@ -1,9 +1,9 @@
 import React from 'react';
-import Assignment1 from './Assignment 1.jsx'
-import Assignment2 from './Assignment 2.jsx'
-import Assignment3 from './Assignment 3.jsx'
-import Assignment4 from './Assignment 4.jsx'
-import Assignment5 from './Assignment 5-Parent.jsx'
+import Assignment1 from './Day 7/Assignment 1.js'
+import Assignment2 from './Day 7/Assignment 2.jsx'
+import Assignment3 from './Day 7/Assignment 3.jsx'
+import Assignment4 from './Day 7/Assignment 4.jsx'
+import Assignment5 from './Day 7/Assignment 5-Parent.js'
 
 export function App(props) {
   return (
